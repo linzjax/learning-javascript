@@ -1,10 +1,17 @@
 //This successfully takes a word and translates it into piglatin.
 function pig_latin(new_word){
+      //splits the word into individual letters
       var rray_ay = new_word.split('');
+      
+      //takes the first letter out of the array and adds 'ay' to it.
       rray_ay.reverse();
       var nd_eay = rray_ay.pop() + "ay";
+      
+      //puts the word back in order and joins all of the remaining letters
       rray_ay.reverse();
       rray_ay = rray_ay.join('');
+      
+      //spits out the new pig latin word
       return rray_ay + "-" + nd_eay;
     };
 
