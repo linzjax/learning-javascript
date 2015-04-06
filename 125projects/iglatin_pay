@@ -1,20 +1,45 @@
-function pig_latin(phrase){
-//splits string into an array
-  var rray_ay = phrase.split('');
+//This successfully takes a word and translates it into piglatin.
+function pig_latin(new_word){
+//turns it into an array
+      var rray_ay = new_word.split('');
+      
+      //reverses the array so that it pulls the first letter
+      rray_ay.reverse();
+      var nd_eay = rray_ay.pop() + "ay";
+      
+      //puts it back in the correct order, and joins the remaining letters
+      rray_ay.reverse();
+      rray_ay = rray_ay.join('');
+      
+      //adds the first letter to the end with the appropriate pig latin 'ay'.
+      return rray_ay + "-" + nd_eay;
+    };
 
-//reverses the order so that .pop() pulls the first letter, not the last
-  rray_ay.reverse();
-
-//take the first letter and add 'ay'
-  var nd_eay = rray_ay.pop() + "ay";
-
-//puts the string back in order and turns it into a string again.  
-  rray_ay.reverse();
-  rray_ay = rray_ay.join('');
-
-//combines it all into one string.
-  return rray_ay + "-" + nd_eay;
+//this then breaks down a phrase into individual words.
+function pig_latin_phrase(phrase){
+  
+  //this removes any unwanted punctution.
+  phrase = phrase.replace(/[^\w\s]|_/g, "");
+  
+  //so now we have an array with individual words
+  var phrase_array = phrase.split(' ');
+  
+  //creates an empty array to dump the new pig latin words into
+  var new_phrase_array = [];
+  
+  //for each word in the array, turn it into pig latin and push it into the new_phrase_array
+  for (i = phrase_array.length-1; i >= 0; i--){
+    var word = phrase_array.pop();
+    var new_word = pig_latin(word);
+    new_phrase_array.push(new_word);
+  };
+  
+  //return the new pig latin phrase and add a "!" for excitement.
+  return new_phrase_array.reverse().join(' ') + '!';
 };
 
+
+
 console.log(pig_latin('firetruck'));
-//"iretruck-fay"
+
+console.log(pig_latin_phrase("This is going to require more work to include all of the rules."));
