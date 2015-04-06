@@ -1,0 +1,20 @@
+function pig_latin(phrase){
+//splits string into an array
+  var rray_ay = phrase.split('');
+
+//reverses the order so that .pop() pulls the first letter, not the last
+  rray_ay.reverse();
+
+//take the first letter and add 'ay'
+  var nd_eay = rray_ay.pop() + "ay";
+
+//puts the string back in order and turns it into a string again.  
+  rray_ay.reverse();
+  rray_ay = rray_ay.join('');
+
+//combines it all into one string.
+  return rray_ay + "-" + nd_eay;
+};
+
+console.log(pig_latin('firetruck'));
+//"iretruck-fay"
