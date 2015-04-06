@@ -1,17 +1,10 @@
 //This successfully takes a word and translates it into piglatin.
 function pig_latin(new_word){
-//turns it into an array
       var rray_ay = new_word.split('');
-      
-      //reverses the array so that it pulls the first letter
       rray_ay.reverse();
       var nd_eay = rray_ay.pop() + "ay";
-      
-      //puts it back in the correct order, and joins the remaining letters
       rray_ay.reverse();
       rray_ay = rray_ay.join('');
-      
-      //adds the first letter to the end with the appropriate pig latin 'ay'.
       return rray_ay + "-" + nd_eay;
     };
 
@@ -39,7 +32,4 @@ function pig_latin_phrase(phrase){
 };
 
 
-
-console.log(pig_latin('firetruck'));
-
-console.log(pig_latin_phrase("This is going to require more work to include all of the rules."));
+document.write(pig_latin_phrase("<p>" + prompt(); + "<p>"));
