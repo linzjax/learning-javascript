@@ -1,23 +1,32 @@
-//This successfully takes a word and translates it into piglatin.
+///This successfully takes a word and translates it into piglatin.
 function pig_latin(new_word){
-      //splits the word into individual letters
+  //putting each letter in an array
       var rray_ay = new_word.split('');
-      
-      //takes the first letter out of the array and adds 'ay' to it.
-      rray_ay.reverse();
-      var nd_eay = rray_ay.pop() + "ay";
-      
-      //puts the word back in order and joins all of the remaining letters
-      rray_ay.reverse();
-      rray_ay = rray_ay.join('');
-      
-      //spits out the new pig latin word
-      return rray_ay + "-" + nd_eay;
+  //check and see if the word starts with a vowel
+      if (rray_ay[0] == "a"|| rray_ay[0] == "o"||rray_ay[0] =="i"||rray_ay[0] =="e"||rray_ay[0] =="u"){
+   //apply appropriate pig latin ending
+    	var nd_eay = 'way';
+   //if word does not start with a vowel
+  } else {
+   //reverse the word so that .pop(); accesses the first letter.
+    rray_ay.reverse();
+   //remove the first letter and asign it to a variable
+    var nd_eay = rray_ay.pop();
+   //add 'ay' to the first letter
+    nd_eay = nd_eay + 'ay';
+   //put the rest of the letters back in the correct order.
+    rray_ay.reverse();
+  };
+   //convert the array back to a string
+  	rray_ay = rray_ay.join('');
+   //combine with appropriate pig latin ending.
+    return rray_ay + '-' + nd_eay;
     };
 
 //this then breaks down a phrase into individual words.
 function pig_latin_phrase(phrase){
-  
+  //makes sure it can account for any capitalized vowels
+  phrase = phrase.toLowerCase();
   //this removes any unwanted punctution.
   phrase = phrase.replace(/[^\w\s]|_/g, "");
   
