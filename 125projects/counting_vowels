@@ -1,0 +1,29 @@
+//Enter a string and the program counts the number of vowels in the text. For added complexity have it report a sum of each vowel found.
+
+
+function count_vowels(user_input){
+  //show what the user typed
+  document.write('"' + user_input + '":')
+  //running total of vowels
+  var vowel_sum = 0;
+  //accounts for capital letters
+  user_input = user_input.toLowerCase();
+  //turns user_input into an array
+  var user_input_array = user_input.split('');
+  //tells the program to look through every letter/space
+  for (i = user_input_array.length-1; i >= 0; i--){
+    //if the position it's examining contains a vowel.....
+  	if (user_input_array[i] == 'a' || user_input_array[i] == 'e' || user_input_array[i] == 'i' || user_input_array[i] == 'o' || user_input_array[i] == 'u' )  {
+      //add +1 to the total number of vowels
+        vowel_sum++;
+        };
+    //otherwise keep looking.
+  };
+  //return the total number of vowels
+  
+  document.write(' This contains ' + vowel_sum + ' vowels.');
+};
+
+
+        
+count_vowels(prompt());
