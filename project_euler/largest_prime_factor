@@ -1,0 +1,25 @@
+function findPrimeAgain(y){
+  var check = true;
+  for (var x = 2; x <= y - 1; x++){
+    if (y % x == 0) {
+      check = false;
+      break;
+    };
+  };
+  return check;
+};
+
+findPrimeAgain(17);
+
+function findFactors(x){
+  for(var i = 1; i < x; i++){
+    if (x % i == 0){
+      var check = findPrimeAgain(i);
+      if (check == true){
+        document.write( i + " is a prime <br>");
+      };
+    };
+  };
+};
+
+findFactors(600851475143);
