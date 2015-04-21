@@ -8,6 +8,6 @@ Weeeeee
 http://www.dreamincode.net/forums/topic/78802-martyr2s-mega-project-ideas-list/
 
 
-# project-euler
+# project_euler
 
 https://projecteuler.net/
