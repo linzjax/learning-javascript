@@ -1,34 +1,17 @@
 //takes three arguments: the directory name, the filename string,and a callbackfunction
 var fs = require('fs');
 
-function callback(err, data){
-	if (err) {
-			console.log(err);
-		} else {
-			for (i = 0; i < data.length; i++){
-				file = data[i].split('.');
-				if (file[1] === process.argv[3]){
-					console.log(file.join('.'));
-				}
-			}
-		}
-	}
+function checkFile(directory, extension, callback){
+	fs.readdir(directory, function(err, data){
+		if (err)
+			return callback(err);
+		
+		callback(err, data.filter(function(item){
+			file = item.split('.');
+			return (file[1] === extension);
+		}));
 
-
-
-function checkFile(name, filename, callback){
-	fs.readdir(name, callback){
-		if (err) {
-			console.log(err);
-		} else {
-			for (i = 0; i < data.length; i++){
-				file = data[i].split('.');
-				if (file[1] === process.argv[3]){
-					console.log(file.join('.'));
-				}
-			}
-		}
-	}
+	});
 }
 
-module.exports = checkFile();
+module.exports = checkFile;
